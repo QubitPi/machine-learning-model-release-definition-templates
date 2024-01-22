@@ -29,8 +29,8 @@ config:
         git clone --depth 1 https://github.com/QubitPi/hashicorp-aws.git ../hashicorp-aws
         cp ../hashicorp-aws/hashicorp/machine-learning/images/aws-ml.base.pkr.hcl ../hashicorp-aws/hashicorp/machine-learning/images/mlflow-docker
         cp ../hashicorp-aws/hashicorp/machine-learning/instances/aws-ml.base.tf ../hashicorp-aws/hashicorp/machine-learning/instances/mlflow-docker
-    - load-packer-variable-file: echo "$AWS_WS_PKRVARS_HCL" > ../hashicorp-aws/hashicorp/machine-learning/images/mlflow-docker/aws-ml.auto.pkrvars.hcl
-    - load-terraform-variable-file: echo "$AWS_WS_TFVARS" > ../hashicorp-aws/hashicorp/machine-learning/instances/mlflow-docker/aws-ml.auto.tfvars
+    - load-packer-variable-file: echo "$AWS_ML_PKRVARS_HCL" > ../hashicorp-aws/hashicorp/machine-learning/images/mlflow-docker/aws-ml.auto.pkrvars.hcl
+    - load-terraform-variable-file: echo "$AWS_ML_TFVARS" > ../hashicorp-aws/hashicorp/machine-learning/instances/mlflow-docker/aws-ml.auto.tfvars
 
     - packer-init: cd ../hashicorp-aws/hashicorp/machine-learning/images/mlflow-docker && packer init .
     - packer-validate: packer validate -var "skip_create_ami=true" .
@@ -40,7 +40,7 @@ config:
     - terraform-validate: terraform validate
     - terraform-apply: terraform apply -auto-approve
   secrets:
-    - AWS_WS_PKRVARS_HCL
-    - AWS_WS_TFVARS
+    - AWS_ML_PKRVARS_HCL
+    - AWS_ML_TFVARS
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
