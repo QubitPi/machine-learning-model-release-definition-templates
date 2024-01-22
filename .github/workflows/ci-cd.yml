@@ -12,20 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ---
-shared:
-  image: node:18
+name: CI/CD
+
+"on":
+  pull_request:
+  push:
+    branches:
+      - master
+
 jobs:
-  main-mlflow-docker:
-    requires: [~pr, ~commit]
-    steps:
-      - install: npm install -g screwdriver-template-main
-      - validate: template-validate
-    environment:
-      SD_TEMPLATE_PATH: templates/sd-template-mlflow-docker.yaml
-  publish-mlflow-docker:
-    requires: main-mlflow-docker
-    steps:
-      - install: npm install -g screwdriver-template-main
-      - publish: template-publish --tag latest
-    environment:
-      SD_TEMPLATE_PATH: templates/sd-template-mlflow-docker.yaml
+  mk-yml-style-check:
+    uses: QubitPi/hashicorp-aws/.github/workflows/screwdriver-cd-templates-ci-cd.yml@master
