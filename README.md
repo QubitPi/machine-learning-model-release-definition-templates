@@ -75,8 +75,8 @@ The following [Screwdriver Secrets] needs to be defined before running this temp
   aws_deploy_region   = "us-east-2"
   ami_name            = "my-ml-ami"
   instance_type       = "t2.small"
-  ec2_instance_name   = "My ML Rest Service"
-  ec2_security_groups = ["ML Rest Service Security Group"]
+  ec2_instance_name   = "My Machine Learning REST Service"
+  ec2_security_groups = ["ML REST Service Security Group"]
   ```
 
   - `aws_deploy_region` is the [EC2 runtime region][AWS regions]
