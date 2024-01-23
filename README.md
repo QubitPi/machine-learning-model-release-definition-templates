@@ -59,7 +59,7 @@ The following [Screwdriver Secrets] needs to be defined before running this temp
 
   ```hcl
   aws_image_region = "us-east-2"
-  ami_name         = "my-kong-ami"
+  ami_name         = "my-ml-ami"
   instance_type    = "t2.small"
   ml_models_path   = "/home/my-nlp-models"
   ```
@@ -73,10 +73,10 @@ The following [Screwdriver Secrets] needs to be defined before running this temp
 
   ```hcl
   aws_deploy_region   = "us-east-2"
-  ami_name            = "my-kong-ami"
+  ami_name            = "my-ml-ami"
   instance_type       = "t2.small"
-  ec2_instance_name   = "My Kong API Gateway"
-  ec2_security_groups = ["My Kong API Gateway Security Group"]
+  ec2_instance_name   = "My ML Rest Service"
+  ec2_security_groups = ["ML Rest Service Security Group"]
   ```
 
   - `aws_deploy_region` is the [EC2 runtime region][AWS regions]
@@ -118,7 +118,6 @@ The use and distribution terms for [machine-learning-model-release-definition-te
 [Immutable Infrastructure]: https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure
 
 [machine-learning-model-release-definition-templates]: https://github.com/QubitPi/machine-learning-model-release-definition-templates
-[Kong manager UI]: https://qubitpi.github.io/docs.konghq.com/gateway/latest/kong-manager/
 
 [publishing a template in Screwdriver]: https://qubitpi.github.io/screwdriver-cd-guide/user-guide/templates#publishing-a-template
 
