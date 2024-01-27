@@ -23,3 +23,5 @@ name: CI/CD
 jobs:
   template-validations:
     uses: QubitPi/hashicorp-aws/.github/workflows/screwdriver-cd-templates-ci-cd.yml@master
+    secrets:
+      slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
